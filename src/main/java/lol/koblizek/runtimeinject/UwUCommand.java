@@ -21,7 +21,6 @@ public class UwUCommand implements CommandExecutor {
             .build();
 
     public UwUCommand() {
-
         try {
             for (Path jar : Files.walk(Path.of("libraries/")).filter(p -> p.toFile().getName().endsWith(".jar"))
                     .toList()) {
@@ -59,6 +58,11 @@ public class UwUCommand implements CommandExecutor {
         }
 
         String code = String.join(" ", strings);
+
+        if (code.contains("File") || code.contains("Path") || code.contains("..")) {
+            sender.sendMessage( ChatColor.RED+ "This code contains potentially dangerous code, here we go...");
+        }
+
         for (SnippetEvent event : J_SHELL.eval(code)) {
             if (event.status() == Snippet.Status.VALID) {
                 sender.sendMessage(ChatColor.GREEN + event.value());

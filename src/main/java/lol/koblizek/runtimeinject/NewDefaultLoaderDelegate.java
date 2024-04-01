@@ -29,10 +29,6 @@ public class NewDefaultLoaderDelegate implements LoaderDelegate {
 
         private final Map<String, RemoteClassLoader.ClassFile> classFiles = new HashMap<>();
 
-        RemoteClassLoader() {
-            super(new URL[0]);
-        }
-
         RemoteClassLoader(ClassLoader parent) {
             super(new URL[0], parent);
         }
