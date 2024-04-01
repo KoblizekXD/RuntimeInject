@@ -1,0 +1,9 @@
+name: RuntimeInject
+version: '${version}'
+main: lol.koblizek.runtimeinject.RuntimeInject
+api-version: '1.20'
+commands:
+  java:
+    usage: /java <code>
+    description: Executes Java code
+    permission: java.jshell.access
